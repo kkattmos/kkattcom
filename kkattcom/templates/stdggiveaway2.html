@@ -1,0 +1,66 @@
+{% extends 'stdgmain.html' %}
+{% load static %}
+{% block title %}Giveaway | studywkkattmos{% endblock title %}
+{% block style %}
+textarea{
+    width: 98%;
+    border: none;
+    background-color: gainsboro;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Anuphan';
+    padding: 10px;
+}
+label{
+    margin: 30px auto 10px 0;
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 100;
+    color: #535E57;
+}
+{% endblock style %}
+{% block content %}
+<div style="height: 110px;"></div> 
+<div style="flex-direction: column;">
+    <h1>รับชีทสรุปสำเร็จ!</h1>
+    <img src="{% static 'checkmark.png' %}" style="width: 100px;margin: auto;">
+</div>
+<div style="background-color: green; width: 100%; margin: 30px auto 30px auto;flex-direction: column;">
+    <div>
+        <h2 style="color: whitesmoke; text-align: center;">คุณเข้ามารับเป็นคนที่</h2>
+    </div>
+    <div style="flex-direction: row; justify-content: space-evenly;width: 100%;">
+        <div style="flex-direction: column;margin: auto;">
+            <h1 style="background-color: whitesmoke; color: green; font-size: 40px; font-family: 'Rubik';margin: 10px auto; padding: 10px; border-radius: 10px;width: 100px; text-align: center;">{{p}}</h1>
+            <h3 style="color: white; margin: 5px auto 15px;font-weight: 100;">ในชุดเดียวกันนี้</h3>
+        </div>
+        <div style="flex-direction: column;margin: auto;">
+            <h1 style="background-color: whitesmoke; color: green; font-size: 40px; font-family: 'Rubik';margin: 10px auto; padding: 10px; border-radius: 10px;width: 100px; text-align: center;">---</h1>
+            <h3 style="color: white; margin: 5px auto 15px;font-weight: 100;">ในทั้งหมด</h3>
+        </div>
+    </div>
+</div>
+<h4 style = "color: #535e57; font-weight: 100; margin: 10px auto 10px 0;">สำหรับการดาวน์โหลดไฟล์สรุป ให้กดที่ปุ่ม "&#10162;" ตามรหัสชีทสรุปที่ต้องการ โดยสามารถดาวน์โหลดไฟล์ทั้งหมดได้จนถึงวันปล่อย Giveaway รอบถัดไป</h4>
+<h4 style = "color: brown; font-weight: 200; margin: 10px auto 10px 0;">**ขอความกรุณา<u>ไม่ส่งต่อ</u>ไฟล์ให้คนอื่น เพื่อการเก็บข้อมูลจำนวนผู้เล่นที่แม่นยำ</h4>
+<div style="flex-direction: column;background-color: #535e57d8; border: 3px solid #353b37; width: 100%; border-radius: 10px;">
+    {% for r in u %}
+    <div style="flex-direction: row;width: 100%; border-bottom: 1px solid darkgrey; border-radius: 0px;">
+        <div style="flex-direction: column;flex-grow: 1;">
+            <div style="flex-direction: row;width: 100%">
+                <div style="width: 50px;text-align: center;margin: 10px 15px 5px 20px;padding: 5px; background-color: whitesmoke;color: #535E57; border-radius: 5px; font-family: 'Rubik';"><h1 style="margin: auto;font-size: 25px;">{{r.code}}.{{r.order}}</h1></div>
+                <h3 style="color: whitesmoke; margin: 12px auto auto 0; font-size: 25px;">{{r.sub}}</h3>
+            </div>
+            <h5 style="margin: 5px auto 10px 20px; font-size: 20px; color: darkgrey; font-weight: 100;">{{r.details}}</h5>
+        </div>
+        <div><a href={{r.file.url}}><button style="width: 50px; height: 50px; background-color: whitesmoke; border-radius: 10px; margin: auto 20px auto auto; border: none;box-shadow: 5px 5px 30px rgba(0,0,0,0.2);"><h4 style="margin: auto; font-size: 30px;color: #353b37;">&#10162;</h4></button></a></div>
+    </div>
+    {% endfor %}
+    <div style="height: 10px"></div>
+</div>
+<form method="post" style="margin: 30px 0px 10px 0;">
+    {% csrf_token %}
+    {{form2.as_table}}
+    <button style="padding: 5px 20px; font-size: 20px;font-family: 'Anuphan';color: whitesmoke; background-color: #535E57; margin: 20px auto; border: 2px solid #353b37;border-radius: 5px;">ส่ง</button>
+</form>
+
+{% endblock content %}

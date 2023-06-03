@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'stdg.ico' %}"/>
+    <link href={% static 'stylestdg.css' %} rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+    <style>{% block style %}{% endblock style %}
+        .menu{
+            color: rgb(24, 24, 24);
+            background-color: whitesmoke;
+            width: 300px;
+            flex-direction: column;
+            border-radius: 5px;
+            box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+        
+            margin: 20px 10% auto auto;
+            max-height: 0px;
+            position: fixed;
+            top: 70px;
+            right: 0.7%;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+        .menu.open{
+            max-height: fit-content;
+            transition: max-height 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="header2">
+            <div><a href="{% url 'stdgindex' %}"><img src={% static 'logostdg.jpg' %} id="logo"></a></div>
+            <div style="flex-grow: 1;"></div>
+            {% if id != none %}
+            <div style="margin: auto; border: none; border-radius: 5px;">
+                <a href="{% url 'editaccount' %}" style="padding:8px 11px;margin: auto;color: whitesmoke;">บัญชี</a>
+                <p style="margin: auto 10px auto 10px; text-decoration: none;color: whitesmoke;font-size: 50px;"onclick="toggleMenu()">&equiv;</p>
+            </div>
+            {% else %}
+                <a href="{% url 'login' %}" id='loginbutton' style="margin: auto; color: whitesmoke">เข้าสู่ระบบ</a>
+            {% endif %}
+                
+            <div id="userinfoatheader"></div>
+        </div>
+    </div>
+    <div id="contentbox">
+        {% block content %}{% endblock content %}
+    </div>
+    <div class="menu" id="menu">
+        <div style="flex-direction: column;width: 100%">
+            <h2 style="margin: 10px auto 5px 15px; text-align: left;">{{name}}</h2>
+            <h5 style="margin: 0 auto 10px 15px; text-align: left;color: grey;font-weight: 100;">-</h5>
+        </div>
+        {% comment "" %}
+        <a href="{% url 'editaccount' %}"id='menubutton'>Admin Management (ยังไม่พร้อมใช้งาน)</a>
+        <a href="{% url 'kkattdrop' %}"id='menubutton'>KKATTDROP</a>
+        <a href="{% url 'index' %}" style="margin: 5px auto; font-size: 20px; width: 90%; border: 1px solid #535e57;text-align: center; border-radius: 5px;padding: 5px">ทางลัดไปหน้าหลัก</a>
+        {% endcomment %}
+        <hr style="margin:2px auto; width: 95%; color: grey">
+        <a href="{% url 'editaccount' %}"style="margin: 5px auto; font-size: 20px; width: 90%; border: 1px solid #535e57;text-align: center; border-radius: 5px;padding: 5px;background-color: #535e57;color: whitesmoke">แก้ไขข้อมูลในบัญชี</a>
+        <a href="{% url 'logout' %}"id='menubutton' style="margin: 0px auto 5px auto; font-size: 20px; width: 90%; border: 1px solid #535e57;text-align: center; border-radius: 5px;padding: 5px;background-color: brown; color: whitesmoke;">ออกจากระบบ</a>
+    </div>
+    <div style="flex-direction: column;height: auto;background-color: black;color: grey;border-radius: 0px;">
+        <h5 style="color:grey; font-weight: 100; margin: 40px auto 20px;">&copy; {% now 'Y' %} - All rights reserved</h5>
+        <h5 style="color:grey; font-weight: 100; margin: 20px auto 40px;">เว็บไซต์จัดทำโดย นายขัตติยะ วิริยะเกียรติพงศ์ | TU84 Sci-Math Room 146</h5>
+    </div>
+    <script>
+        let submenu = document.getElementById("menu");
+    
+        function toggleMenu(){
+            submenu.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>

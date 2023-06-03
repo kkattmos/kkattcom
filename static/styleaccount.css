@@ -1,0 +1,96 @@
+body{
+    margin: auto;
+    font-family: 'Anuphan';
+    font-size: 20px;
+}
+
+div{
+    margin: auto;
+    width: auto;
+    height: auto;
+    text-align: center;
+    display: flex;
+    border-radius: 10px;
+    background-color: rgb(24, 24, 24);
+}
+
+h1{
+    margin: 40px auto 20px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+    color: cyan;
+}
+
+hr{
+    width: 90%;
+    color: #9c9c9c;
+    border-width: 0.5px;
+}
+form{
+    display: block;
+    width: 90%;
+    margin: auto;
+    color: cyan;
+}
+label{
+    text-align: left;
+    display: block;
+    width: 90%;
+    margin: 10px 0 10px 0;
+    color: whitesmoke;
+}
+input{
+    text-align: left;
+    width: 99%;
+    height: 35px;
+    border: 1px solid cyan;
+    border-radius: 5px;
+    background-color: grey;
+    font-size: 20px;
+    font-family: 'Anuphan';
+}
+
+#id_rememberme{
+    text-align: left;
+    width: 40px;
+}
+
+button{
+    transition: 0.125s;
+    background-color: cyan;
+    border: 0px solid black;
+    border-radius: 5px;
+    color: rgb(24, 24, 24);
+    margin: 0 0 5% auto;
+    padding: 10px 20px;
+    font-family: 'Anuphan';
+    font-size: 20px;
+}
+button:hover{
+    cursor: pointer;
+    background-color :rgba(0, 255, 255, 0.8);
+    transition: 0.125s;
+}
+h5 {
+    color: brown;
+    text-align: left;
+    padding: 0px;
+    font-weight: 200;
+
+}
+h6{
+    font-size: 15px;
+    color: grey;
+    padding: 0px;
+    font-weight: 200;
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+.errorlis{
+    color: cyan;
+    font-size: 0px;
+}
+

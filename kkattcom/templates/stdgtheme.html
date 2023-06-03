@@ -1,0 +1,35 @@
+{% extends 'stdgmain.html' %}
+{% load static %}
+{% block title %}ธีมสี | studywkkattmos{% endblock title %}
+{% block content %}
+<div style="height: 135px;"></div>
+<h1 style="margin: auto;">ธีมสี</h1>
+<h3 style="color: #535e57; margin: 20px auto 5px; font-weight: 100; text-align: center;">ธีมสีเหล่านี้จะเป็นธีมสีที่ได้ใช้ในชีทสรุป @studywkkattmos เวอร์ชั่น 2.0.0 ขึ้นไป ซึ่งผมได้รวบรวมไว้เพื่อเป็นแนวทางให้กับเพื่อนๆ ได้เลือกใช้กันครับ</h3>
+<h3 style="color: #535e57; margin: 20px auto 5px; font-weight: 100; text-align: center;">NOTE : กดที่รูปเพื่อดูตัวอย่างแบบละเอียดได้ครับ</h3>
+
+
+{% for r in t %}
+<div style="margin: 20px auto; width: 100%; border: none; background-color: {{r.hex6}};">
+    <div style="height: 200px; border-radius: 0;"><a href="{{r.preview.url}}"><img src="{{r.preview.url}}" style="width: 100%; height: 200px;background-size: cover"></a></div>
+    <div style="flex-grow: 1;flex-direction: column; height: 200px;">
+        <h2 style="margin: 10px auto auto 10px; color: {{r.hex3}};font-family: 'Rubik';">{{r.theme}}</h2>
+        <h4 style="margin: 5px auto auto 10px; padding: 5px; background-color: {{r.hex4}}; color: #FFFFFFCC; border-radius: 5px;font-weight: 100;">มีผู้ใช้ธีมสีนี้ {{r.count}} คน</h4>
+        <div style="flex-grow: 1;"></div>
+
+        <div style="flex-direction: row; width: 100%;">
+            <div style="flex-wrap: wrap; align-content: flex-start; gap: 5px; margin: auto auto 10px 10px; background-color: white; padding: 10px">
+                <div style="width: 20px; height: 20px; background-color: {{r.hex1}}; border-radius: 50px;"></div>
+                <div style="width: 20px; height: 20px; background-color: {{r.hex2}}; border-radius: 50px;"></div>
+                <div style="width: 20px; height: 20px; background-color: {{r.hex3}}; border-radius: 50px;"></div>
+                <div style="width: 20px; height: 20px; background-color: {{r.hex4}}; border-radius: 50px;"></div>
+                <div style="width: 20px; height: 20px; background-color: {{r.hex5}}; border-radius: 50px;"></div>
+                <div style="width: 20px; height: 20px; background-color: {{r.hex6}}; border-radius: 50px;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock content %}

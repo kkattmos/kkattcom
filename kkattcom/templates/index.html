@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}หน้าหลัก | kkattmos.49{% endblock title %}
+{% block style %}
+<link href={% static 'style.css' %} rel="stylesheet">
+<style>
+    a{
+    text-decoration: none;
+}
+
+</style>
+{% endblock style %}
+
+
+{% block content %}
+
+{% if id != none %}
+
+{% endif %}
+<div style="height: 100vh; text-align: center; vertical-align: middle;margin: auto;">
+    <h3>ยินดีต้องรับสู่</h3>
+    <h1>kkattmos.49</h1>
+</div>
+<div style="margin: 5%; border: 1px solid cyan; border-radius: 10px;box-shadow: 5px 5px 30px rgba(0,0,0,0.5);">
+    <div style="height:auto; width: 125px; background-color: red; border-radius: 10px"></div>
+    <div style="flex-direction: column; margin: auto;flex-grow: 1;">
+        <h1 style="color:cyan; font-family: 'Rubik';width: 90%; margin: 20px auto 0 20px; text-align: left; font-size: 35px;">TUML FOOD RECOMMENDER</h1>
+        <h6 style="margin: 15px auto 20px 20px; color: grey; font-weight: 100;font-size: 20px;">{% lorem 15 w random %}</h6>
+    </div>
+</div>
+
+<div style='background-color: cyan; flex-direction: column; border-radius: 0px; text-align: center; box-shadow: 5px 5px 30px rgba(0,0,0);;'>
+    <h1 style="color:#242424; font-family: 'Rubik';">KKATTMOS.49</h1>
+    <h5 style="color: #242424; width: 90%; margin: auto; font-weight: 100; font-size: 24px;">{% lorem 30 w random %}</h5>
+    <button style="margin: 30px auto; padding: 10px 25px; color:aqua; background-color: #242424; border-radius: 50px; font-family: 'Anuphan';
+    font-size: 20px; border: 1px solid #242424">ABOUT ME  >></button>
+</div>
+<div style="flex-direction: column; text-align: center; word-spacing: 5px;">
+    <h1 style="color: whitesmoke;font-family: 'Rubik';">SOCIAL PLATFORMS</h1>
+    <h5 style="color: rgba(128, 128, 128, 0.501);letter-spacing: 5px; margin: auto;"><i>บัญชีโซเชียลมีเดียทั่วไป</i></h5>
+    <h4 style="color: grey; letter-spacing: 7px; text-decoration: none;font-size: 15px; line-height: 2;"> <a href="https://www.facebook.com/khattiya.wiriyakeattipong.9">FACEBOOK</a> &bull; TWITTER &bull; <a href="https://discord.gg/f85QrxFg">DISCORD</a></h4>
+    
+    <h5 style="color: rgba(128, 128, 128, 0.501);letter-spacing: 5px; margin: 30px auto auto auto;"><i>บัญชีใน INSTAGRAM</i></h5>
+    <h4 style="color: grey; letter-spacing: 7px; text-decoration: none;font-size: 15px;line-height: 2;"> <a href="https://www.instagram.com/kkattmos.49/">@KKATTMOS.49</a> &bull; <a href="https://www.instagram.com/studywkkattmos/">@STUDYWKKATTMOS</a> &bull; @PROGRAMDOESKKATTMOS &bull; @KKATTPROJECTS</h4>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,17 @@
+{% extends 'accountmain.html' %}
+{% block content %}
+
+<h1>เข้าสู่ระบบ</h1>
+
+<form method="post">
+    {% csrf_token %}
+{{form.as_p}}
+<div><h5>{{ err_msg }}</h5><br></div>
+    <div>
+        <h6><a href={% url 'createaccount' %}>สร้างบัญชีใหม่</a></h6>
+        <button>เข้าสู่ระบบ</button>
+        
+    </div>
+    
+</form>
+{% endblock content %}

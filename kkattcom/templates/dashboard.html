@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard ห้ามยุ่งเด็ดขาด!!!</title>
+    <style>
+        body{
+            font-family: Sarabun;
+            font-size: 20px;
+            color: navy;
+            margin: 20px;
+        }
+        div{
+            background-color: gainsboro;
+            border-radius: 5px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+   <h1>แผงควบคุมระบบ kkattmos.49</h1>
+   <p>ใช้แนวตั้งจะดีสุด ขี้เกียจออกแบบแนวนอน</p>
+   <hr>
+   {# Giveaway - SWKM #}
+   <div>
+        <div style="margin: 20px;">
+            <h2 style="margin: auto;padding: 10px 0 0 0">Giveaway SWKM</h2>
+        </div>
+        {% if d000.active == True %}
+        <div style="background-color: navy; color: whitesmoke;">
+            <h3 style="margin: 15px; text-align: left; padding: 10px 0 10px 0">{{d000.title}} (S.{{r.season}}) Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium</h3>
+                <div style="background-color: navy; border: 1px solid whitesmoke">
+                    <h4 style="background-color: whitesmoke;margin: auto; color: navy;padding: 10px; border-radius: 5px; font-weight: 300;"><b>ยอดผู้รับไฟล์:</b> 0 บัญชี</h4>
+                    <h4 style="margin: 10px auto 0 10px;color: whitesmoke;font-weight: 300;"><b>ม.4:</b> 0 บัญชี</h4>
+                    <hr style="color: whitesmoke">
+                    <h4 style="margin: 10px auto 0 10px;color: whitesmoke;font-weight: 300;"><b>ม.5:</b> 0 บัญชี</h4>
+                    <hr style="color: whitesmoke">
+                    <h4 style="margin: 10px auto 10px 10px;color: whitesmoke;font-weight: 300;"><b>ม.6:</b> 0 บัญชี</h4>
+                </div>
+            <p style="font-size: 12px; margin: 15px"><i>{{d000.des}}</i></p>
+        </div>
+        {% else %}
+        <div style="color: navy; align-items: flex-start;">
+            <form method="post">
+            {% csrf_token %}
+            <h3>ตั้งค่าการเปิดระบบ</h3>
+            {{Form000.as_table}}
+            <button>เปิดระบบ</button>
+            </form>
+        </div>
+        {% endif %}
+   </div> 
+</body>
+</html>

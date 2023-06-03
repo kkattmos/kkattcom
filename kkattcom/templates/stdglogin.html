@@ -1,0 +1,10 @@
+{% extends 'stdgmain.html' %}
+{% block content %}
+<h1>เข้าสู่ระบบ</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>เข้าสู่ระบบ</button>
+    {{ err_msg }}
+</form>
+{% endblock content %}

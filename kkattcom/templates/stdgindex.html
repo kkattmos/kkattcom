@@ -1,0 +1,95 @@
+
+{% extends 'stdgmain.html' %}
+{% block title %}หน้าหลัก | studywkkattmos{% endblock title %}
+{% block style %}
+#menutab{
+    margin-top: 20px;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#menubutton{
+    flex-direction: column;
+    margin: 5px auto 30px auto;
+    width: 250px;
+    border: 2px solid #535E57;
+    border-radius: 5px;
+    color: #535E57;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 15px;
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+    
+    {% if id != None%}<h1 style="margin-top: 115px;">สวัสดีครับ คุณ {{name}}!</h1>{% endif %}
+    
+    <br>
+    <br>
+
+    {% if id != None %}
+    {% for r in x %}
+    <div id="popup" style="background-image: url('{% static 'giveawaycover.png' %}');background-size: cover;background-position: center;">
+        <h2 style="margin: 20px auto 0px 20px">{{r.title}}</h2>
+        <h4 style="background-color: whitesmoke;color: black; padding: 5px; border-radius: 10px;margin: 10px auto auto 20px;font-weight: 200;">ยอดผู้รับชีทสรุป : {{c}} คน</h4>
+        <h3 style="margin: 10px auto 0px 20px; color: yellow; font-weight: 100;">{{r.warning}}</h3>
+        <div style="height: 150px;"></div>
+        <a id="button" style="margin: 0 20px 15px auto; background-color: grey" link href="giveaway/">รับชีทสรุป >></a>
+    </div>
+    {% endfor %}
+    {% endif %}
+    
+    {% comment "" %}
+    <div id="userinfoinhome">
+        <div style='width: 150px;'><img src="{{profilepic}}" id='userpicture'></div>
+        <div id="userinfo"><h5 style='margin: 0 auto 0 auto;'>เหรียญที่มี</h5><h2 id='amountinuserinfo'>5</div>
+        <div id="userinfo"><h5 style='margin: 0 auto 0 auto;'>จำนวนครั้งรับชีทสรุป</h5><h2 id='amountinuserinfo'>0</div> 
+        <div id="userinfo"><h5 style='margin: 0 auto 0 auto;'>ของขวัญที่ส่งไป</h5><h2 id='amountinuserinfo'>-</div>
+        <div id="userinfo"><h5 style='margin: 0 auto 0 auto;'>ข้อเสนอ Sharebox</h5><h2 id='amountinuserinfo'>0</div> 
+        <div id="userinfo"><h5 style='margin: 0 auto 0 auto;'>เคยเจอแอดมิน?</h5><h2 id='amountinuserinfo'>NO</div>         
+    </div>
+    {% endcomment %}
+    
+    {% if id != None %}
+    <div id="menutab">
+        <a href="{% url 'stdggiveaway1' %}"><div id="menubutton"><h2>ดูชีทสรุปที่ได้รับ</h2></div></a>
+        <a href="{% url 'theme' %}"><div id="menubutton"><h2>ธีมสี</h2></div></a>
+        <a href="{% url 'sheeterror' %}"><div id="menubutton"><h2>รายงานจุดผิดพลาด</h2></div></a>
+        <a href=""><div id="menubutton"><h2>Sharebox (ยังไม่เปิด)</h2></div></a>
+    </div>
+    {% endif %}
+    
+    <div style="height: auto; flex-direction: column;text-align: center;">
+        <img src={% static 'logostdg.jpg' %} style="margin: 130px auto 5px;border-radius: 50px; width: 80px;">
+        <h1 style="font-family: Mitr; font-weight: 100;margin: 10px auto;">STUDYWKKATTMOS</h1>
+        <h3 style="color: #535e57; font-weight: 100; line-height: 30px;">(น.) Studygram ของเด็กนักเรียนคนหนึ่งในโรงเรียนเตรียมอุดมศึกษา ที่จะมาแชร์เรื่องราวเกี่ยวกับการอ่านหนังสือ การใช้ชีวิตของเด็กมัธยม และเคล็ดลับในการเรียนอื่นๆ เพื่อเป็นแรงบันดาลใจสำหรับเพื่อนๆ และน้องๆ ที่จะมุ่งมั่นทำตามความฝันของตัวเอง รวมถึงจัดกิจกรรม Giveaway แจกสรุปเนื้อหาในทุกๆ การสอบของโรงเรียนในหลากหลายวิชา</h3>
+        {% if id == None %}
+        {% for r in x %}
+            <div id="popup" style="background-image: url('{% static 'giveawaycover.png' %}');background-size: cover;background-position: center;">
+            <h2 style="margin: 20px auto 0px 20px">{{r.title}}</h2>
+            <h4 style="background-color: whitesmoke;color: black; padding: 5px; border-radius: 10px;margin: 10px auto auto 20px;font-weight: 200;">ยอดผู้รับชีทสรุป : {{c}} คน</h4>
+            <h3 style="margin: 10px auto 0px 20px; color: yellow; font-weight: 100;">{{r.warning}}</h3>
+            <div style="height: 150px;"></div>
+            <a id="button" style="margin: 0 20px 15px auto; background-color: grey" link href="giveaway/">รับชีทสรุป >></a>
+            </div>
+        {% endfor %}
+        {% endif %}
+        
+        <h2 style="background-color: #535e57; color: whitesmoke; padding: 10px; font-family: 'Rubik'; font-weight: 100; border-radius: 15px;">Work hard in silence. Let success make the noise.</h2>
+        <h1>เกี่ยวกับการทำ Giveaway</h1>
+        <h3 style="color: #535e57; font-weight: 100; line-height: 30px; text-align:justify;">ทุกๆ ครั้งการสอบของโรงเรียน นับเป็นอีกธรรมเนียมหนึ่งก็ว่าได้ สำหรับเพื่อนๆ และรุ่นพี่ในโรงเรียนเตรียมอุดมศึกษา ที่จะมาแชร์สรุปหรือ Shortnote ให้ได้อ่านกันผ่าน Studygram ของตัวเอง เพื่อที่จะช่วยลดเวลาอ่านหนังสือ แต่เก็บประเด็นสำคัญๆ ของวิชานั้นไว้อย่างเต็มที่ ซึ่ง @studywkkattmos ก็เป็นหนึ่งในผู้ที่ร่วมแชร์สรุปมาตั้งแต่ปี 2021 (พ.ศ. 2564) และมีผู้ใช้งาน (ผู้อ่านชีทสรุป) มากกว่า 1,500 คนต่อการทำ Giveaway 1 ครั้ง</h3>
+        <h3 style="color: #535e57; font-weight: 100; line-height: 30px; text-align:justify;">การจัดเรียงเนื้อหาในชีทสรุปจะใข้รูปแบบ Ordered Bullets ซึ่งจะช่วยให้ผู้ใช้งานมองเห็นถึงภาพรวมของเนื้อหา และอาจเป็นประโยชน์ให้สามารถวางแผนการอ่านหนังสืออีกได้อีกด้วย โดย Ordered Bullets จะเป็นลักษณะของการเรียงหัวข้อหลักตามหนังสือเรียน และนำรายละเอียดย่อยๆ ของหัวข้อนั้นวางรองลงมาจากหัวข้อหลักและย่อ Indent ตามความเหมาะสมของเนื้อหา และสำหรับเนื้อหาบางประเด็นที่ไม่เกี่ยวข้องกับหัวข้อหลัก แต่อาจเป็นประเด็นสำคัญและมีโอกาสออกสอบสูง ผมจะนำเนื้อหานี้ไปไว้ที่แถบขวามือ เพื่อที่ผู้อ่านจะได้ทบทวนเนื้อหาเหล่านี้ได้ง่ายขึ้นครับ</h3>
+        <div style="width: auto;margin: 30px auto; flex-direction: column;display: flex;flex-direction: column;flex-basis: 500px;">
+            <h2 style="margin: auto auto auto 0; background-color: #535e57; color: whitesmoke; font-weight: 500; padding: 7px 15px;">ตัวอย่างชีทสรุป</h2>
+            <hr style="width: 100%; height: 5px;margin: 0px auto 5px; background-color: #535e57;">
+            <img src="{% static 'sheetex.png' %}" style="width: 100%; height: auto;">
+        </div>
+        <h3 style="color: #535e57; font-weight: 100; line-height: 30px; text-align:justify;">ความพิเศษในสรุปของ @studywkkattmos คือเป็นชีทสรุปที่สามารถปรับแต่งธีม (Palette) ให้ตรงตามความต้องการของผู้ใช้งาน ซึ่งผมเชื่อว่า การอ่านสรุปที่มีรูปแบบและสีที่ถนัดหรือตรงกับความชอบของผู้ใช้งาน จะทำให้ผู้อ่านเกิดความเพลิดเพลินกับเนื้อหาที่เขียนไว้ข้างใน และสามารถเก็บเกี่ยวความรู้และประเด็นสำคัญจากชีทสรุปไปสอบได้อย่างเต็มที่ ซึ่งความชอบเหล่านี้ มักจะไม่เหมือนกันในผู้อ่านแต่ละคน (บางคนก็ชอบธีมเรียบๆ แต่บางคนเน้นสีสันในธีม) ซึ่งในอนาคต @studywkkattmos จะมีฟีเจอร์ Custom Palettes ให้ผู้ใช้งานได้ลองตั้งสีตามใจชอบ และจะเปิดธีมสีสำหรับผู้ที่มีความบกพร่องทางการมองเห็น (เช่น ตาบอดสี) เพื่อรองรับผู้ใช้งานที่มากขึ้นอีกด้วย</h3>
+        <a href="{% url 'theme' %}"><button style="background-color: #535e57; color: whitesmoke;margin: 20px auto; padding: 10px 20px; border-radius: 50px; border: none; font-family: 'Anuphan'; font-size: 20px; font-weight: 300;">ดูธีมสีทั้งหมด >> </button></a>
+        <h3 style="color: #535e57; font-weight: 100; line-height: 30px; text-align:justify;">ในอนาคต @studywkkattmos จะเปิดโครงการ Sharebox ซึ่งผู้ใช้งานสามารถร่วมเพิ่มเนื้อหาหรือประเด็นสำคัญที่สามารถออกสอบได้ (แต่ไม่มีในหนังสือเรียน) ซึ่งโครงการนี้จะช่วยเพิ่มความเท่าเทียมระหว่างผู้ใช้งาน (นักเรียน) ในโรงเรียน เนื่องจากในโรงเรียนจะมีอาจารย์ผู้สอนในแต่ละวิชามากกว่า 1 ท่าน และนักเรียนบางห้องจะได้อาจารย์ผู้สอนที่ดีมาก และอาจารย์อาจแชร์หรือบอกแนวข้อสอบดังกล่าวที่นักเรียนห้องอื่นๆ ไม่มีโอกาสได้เห็น</h3>
+    </div>
+    <div style="height: 20vh"></div>
+    
+{% endblock content %}

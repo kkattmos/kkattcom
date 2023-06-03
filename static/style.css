@@ -1,0 +1,90 @@
+body{
+    margin: auto;
+    font-family: 'Anuphan';
+    font-size: 20px;
+}
+div{
+    margin: auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    border-radius: 20px;
+}
+a{
+    text-decoration: none;
+}
+
+#topscreen{
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    border-radius: 0px;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    
+}
+#loginbutton{
+    color: black;
+    background-color: aqua;
+    border: 2px solid rgb(0, 167, 167);
+    border-bottom: 3px solid rgb(0, 167, 167);
+    border-radius: 5px;
+    font-family: 'Anuphan';
+    font-size: 20px;
+
+    margin: auto 10% auto auto;
+    padding: 15px 18px;
+}
+.menu{
+    color: rgb(24, 24, 24);
+    background-color: whitesmoke;
+    width: 300px;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+
+    margin: 20px 10% auto auto;
+    max-height: 0px;
+    position: fixed;
+    top: 70px;
+    right: 0.7%;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+.menu.open{
+    max-height: fit-content;
+    transition: max-height 0.3s;
+}
+#menubutton{
+    color: black;
+    background-color: rgb(245, 245, 245);
+    border: 2px solid rgb(24, 24, 24);
+    border-radius: 5px;
+    font-family: 'Anuphan';
+    font-size: 20px;
+
+    margin: 3px auto;
+    padding: 5px 0px;
+    width: 95%;
+    text-align: center;
+}
+
+#aaa{
+    background-color: cyan;
+    border: 0px solid black;
+    border-radius: 5px;
+    color: rgb(24, 24, 24);
+    margin: 0 auto 5% auto;
+    padding: 10px 20px;
+    font-family: 'Anuphan';
+    font-size: 20px;
+}
+#footer{
+    height: auto;
+    background-color: black;
+    color: grey;
+    border-radius: 0px;
+    
+
+}

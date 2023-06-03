@@ -1,0 +1,46 @@
+{% extends 'stdgmain.html' %}
+{% block title %}Giveaway | studywkkattmos{% endblock title %}
+
+{% block style %}
+button{
+    transition: 0.125s;
+    background-color: #535E57;
+    border: 3px solid #353b37;
+    border-radius: 5px;
+    color: whitesmoke;
+    margin: 10px auto 30px;
+    padding: 10px 20px;
+    font-family: 'Anuphan';
+    font-size: 20px;
+}
+select{
+    font-family: 'Anuphan';
+    font-size: 20px;
+    color: grey;
+    border: 1px solid grey;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px 15px;
+    width: 250px;
+    margin: 10px 0;
+
+}
+option{
+    font-family: 'Anuphan';
+}
+{% endblock style %}
+
+ิ
+{% block content %}
+{% for r in x %}
+<h1 style="margin: 130px auto 35px auto;text-align: center;">{{r.title}}</h1>
+
+<h3 style="color: #535e57; font-weight: 100;text-align:justify">{{r.des}}</h3>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    
+    <button style="margin-bottom: 20vh">รับชีทสรุป</button>
+</form>
+{% endfor %}
+{% endblock content %}

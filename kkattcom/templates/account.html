@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{header}} | kkattmos.49</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'main.ico' %}"/>
+    <link href={% static 'styleaccount.css' %} rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('{% static 'loginbg.jpg' %}');  background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+    <div style="width: 600px;max-width: 78%; margin: 100px auto 100px auto; flex-direction: column;box-shadow: 5px 5px 30px rgba(0,0,0,0.2);">
+        <h1>{{header}}</h1>
+        <form method="post">
+           
+                {% csrf_token %}
+                {{ form.as_table }}
+                
+                <div><h5>{{ err_msg }}</h5><br></div>
+                <div>
+                    {% if accountreq == 0 %}
+                    <h6><a href={% url 'createaccount' %}>สร้างบัญชีใหม่</a></h6>
+                    {% elif accountreq == 1 %}
+                    <h6><a href={% url 'login' %}>เข้าสู่ระบบ</a></h6>
+                    {% elif accountreq == 2 %}
+                    <a href={% url 'changepassword' %}>เปลี่ยนรหัสผ่าน</a>
+                    <a href={% url 'logout' %}>ออกจากระบบ</a>
+                    {% else %}
+                    <h6> </h6>
+                    {% endif %}
+                    <button>{{buttonlabel}}</button>
+                    
+                </div>
+        </form>
+        
+    </div>
+</body>
+</html>

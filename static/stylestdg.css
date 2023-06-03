@@ -1,0 +1,146 @@
+body{
+    margin: auto;
+    font-family: 'Anuphan';
+    
+}
+div{
+    margin: auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    border-radius: 10px;
+}
+#header{
+    background-color: #535E57;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    border-radius: 0px;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+}
+
+h1{
+    color:#535E57;
+    font-weight: bolder;
+    font-size: 35px;
+}
+a{
+    vertical-align: center;
+}
+#button{
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    background-color: grey;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+#contentbox{
+    width: 80%;
+    flex-direction: column;
+}
+
+#blank{
+    flex-grow: 1;
+}
+#header2 {
+    width: 80%;
+    text-align: center;
+    display: flex;
+}
+
+#logo {
+    margin: 10px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+#loginsign{
+    color: whitesmoke;
+    font-size: 25px;
+    font-weight: 500;
+    padding: auto 10px;
+}
+#userinfo{
+    margin: 5px auto;
+    flex-direction: column;
+    color: #535E57;
+    width: 150px;
+}
+#amountinuserinfo{
+    margin: 0px auto 0 auto;
+    font-size: 40px;
+    font-weight: bolder;
+}
+#userpicture{
+    margin: auto;
+    width: 70px;
+}
+#userinfoinhome{
+    margin: 40px auto 0 auto;
+    width: 100%;
+    border: 2px dashed #535E57;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 5px;
+}
+#notloginhome{
+    color: #535E57;
+    background-color: #535e578a;
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    
+    
+}
+#popup{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+    color: white;
+    
+}
+
+#menutab{
+    margin-top: 20px;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#menubutton{
+    flex-direction: column;
+    margin: 5px auto 30px auto;
+    width: 250px;
+    border: 2px solid #535E57;
+    border-radius: 5px;
+    color: #535E57;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+#menubutton{
+    color: black;
+    background-color: rgb(245, 245, 245);
+    border: 2px solid rgb(24, 24, 24);
+    border-radius: 5px;
+    font-family: 'Anuphan';
+    font-size: 20px;
+
+    margin: 3px auto;
+    padding: 5px 0px;
+    width: 95%;
+    text-align: center;
+}
+
+#text{
+    color: #535E57
+}

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'main.ico' %}"/>
+    <link href={% static 'style.css' %} rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'>
+
+    </script>
+    {% block style %}{% endblock style %}
+</head>
+<body style="background: rgb(24, 24, 24);">
+    <div id='topscreen'>
+        <img src="{% static 'meimage.jpg' %}" style='margin: 10px 10px 10px 10%;width: 67.5px;border-radius: 50%;'>
+        {% if id != none %}
+        <div style="margin: 10px 10% 10px auto; border: none; border-radius: 5px;">
+            <a href="{% url 'editaccount' %}" id='loginbutton' style="padding:8px 11px;">บัญชี</a>
+            <p style="margin: auto 10px auto 10px; text-decoration: none;color: aqua;font-size: 50px;"onclick="toggleMenu()">&equiv;</p>
+        </div>
+        {% else %}
+        <a href="{% url 'login' %}" id='loginbutton'>เข้าสู่ระบบ</a>
+        {% endif %}
+        
+    </div>
+    
+    {% block content%}{%endblock%}
+    <div class="menu" id="menu">
+        <div style="flex-direction: column;width: 100%">
+            <h2 style="margin: 10px auto 5px 15px; text-align: left;">{{name}}</h2>
+            <h5 style="margin: 0 auto 10px 15px; text-align: left;color: grey;font-weight: 100;">ความสัมพันธ์ :</h5>
+        </div>
+        {% comment "" %}
+        <a href="{% url 'editaccount' %}"id='menubutton'>Admin Management (ยังไม่พร้อมใช้งาน)</a>
+        <a href="{% url 'kkattdrop' %}"id='menubutton'>KKATTDROP</a>
+        {% endcomment %}
+        
+        <a href="{% url 'stdgindex' %}"id='menubutton'>ทางลัดไป @studywkkattmos</a>
+        <hr style="margin:5px auto; width: 95%; color: grey">
+        <a href="{% url 'editaccount' %}"id='menubutton' style="background-color: aqua;">แก้ไขข้อมูลในบัญชี</a>
+        <a href="{% url 'logout' %}"id='menubutton' style="background-color: brown; color: whitesmoke;">ออกจากระบบ</a>
+    </div>
+    <div id="footer" style="flex-direction: column;">
+        <h5 style="color:grey; font-weight: 100; margin: 40px auto 20px;">&copy; {% now 'Y' %} - All rights reserved</h5>
+        <h5 style="color:grey; font-weight: 100; margin: 20px auto 40px;">เว็บไซต์จัดทำโดย นายขัตติยะ วิริยะเกียรติพงศ์</h5>
+    </div>
+<script>
+    let submenu = document.getElementById("menu");
+
+    function toggleMenu(){
+        submenu.classList.toggle("open");
+    }
+</script>
+</body>
+</html>
